@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Engineering challenges and solutions — Cross-MFE auth, Cloudflare cache, SSE streaming, LibreChat integration."/>
+  <title>Engineering Depth | Ogechukwu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../assets/css/style.css?v=2"/>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="about.html" >About</a></li>
+      <li><a href="projects.html" >Projects</a></li>
+      <li><a href="architecture.html" >Architecture</a></li>
+      <li><a href="features.html" >Features</a></li>
+      <li><a href="depth.html" class="active">Depth</a></li>
+      <li><a href="stack.html" >Stack</a></li>
+      <li><a href="contact.html">Hire Me</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<section class="section" style="padding-top:6rem;">
+  <div class="container">
+    <div class="page-header-row">
+    <a href="javascript:history.back()" class="page-back-btn" aria-label="Go back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    </a>
+    <div class="section-header fade-in">
+      <span class="section-tag">Engineering Depth</span>
+      <h2>Challenges <span class="grad">&amp; Solutions</span></h2>
+      <p>Real problems from Ragbrain — not tutorial-level issues.</p>
+    </div>
+    </div>
+    <div class="challenges fade-in">
+      <div class="ch-item">
+        <div class="ch-num">01</div>
+        <div class="ch-body">
+          <span class="ch-label ch-label-prob">Challenge</span>
+          <h3>Cross-MFE Authentication Without Coupling</h3>
+          <p>Each MFE needs Auth0 tokens to call the API, but importing <code>@auth0/auth0-react</code> into every MFE creates version conflicts and breaks React Context's singleton requirement.</p>
+          <div class="ch-solution">
+            <span class="ch-label ch-label-sol">Solution</span>
+            <p>Built the <strong style="color:var(--text-1)">Auth Bridge pattern</strong>: only the shell imports Auth0 and exposes a typed <code>window.shellAuth</code> object containing <code>getAccessTokenSilently()</code>, <code>isAuthenticated</code>, and <code>logout()</code>. MFEs access tokens via this contract, fully decoupled from the auth library.</p>
+          </div>
+        </div>
+      </div>
+      <div class="ch-item">
+        <div class="ch-num">02</div>
+        <div class="ch-body">
+          <span class="ch-label ch-label-prob">Challenge</span>
+          <h3>MFE Cache Invalidation on Cloudflare</h3>
+          <p><code>remoteEntry.js</code> is the critical file the shell fetches to load the latest MFE bundle. Caching it aggressively means stale MFEs; zero cache means unnecessary network trips for all assets.</p>
+          <div class="ch-solution">
+            <span class="ch-label ch-label-sol">Solution</span>
+            <p>Split the cache strategy in <code>_headers</code>: <strong style="color:var(--text-1)">content-hashed bundles</strong> get <code>max-age=31536000, immutable</code> (1yr). <strong style="color:var(--text-1)"><code>remoteEntry.js</code></strong> and <code>index.html</code> get <code>no-cache, max-age=0</code>. Zero stale MFEs + maximum cache efficiency simultaneously.</p>
+          </div>
+        </div>
+      </div>
+      <div class="ch-item">
+        <div class="ch-num">03</div>
+        <div class="ch-body">
+          <span class="ch-label ch-label-prob">Challenge</span>
+          <h3>Streaming LLM Responses in React</h3>
+          <p>Real-time SSE involves managing idle → loading → streaming → error transitions while parsing agent-formatted events (thought / tool / result) with React's async state batching.</p>
+          <div class="ch-solution">
+            <span class="ch-label ch-label-sol">Solution</span>
+            <p>Implemented a <strong style="color:var(--text-1)"><code>useReducer</code> state machine</strong> with explicit phases. The reducer accumulates streamed tokens immutably and parses agent event types separately. <code>useRef</code> holds the abort controller for clean cancellation without re-renders.</p>
+          </div>
+        </div>
+      </div>
+      <div class="ch-item">
+        <div class="ch-num">04</div>
+        <div class="ch-body">
+          <span class="ch-label ch-label-prob">Challenge</span>
+          <h3>LibreChat in a React 18 / Webpack Shell</h3>
+          <p>LibreChat uses React 17 internals and a Vite build system — incompatible with the Webpack-based React 18 shell and Module Federation's shared singleton requirement.</p>
+          <div class="ch-solution">
+            <span class="ch-label ch-label-sol">Solution</span>
+            <p>Created a dedicated <code>librechat-wrapper</code> MFE with its own <code>package.json</code> declaring React 17 and single-spa-react 4. It wraps LibreChat's client and exposes only the container to Single-SPA — version boundary fully isolated within that MFE.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Frontend Engineer</h3>
+        <p>Built Ragbrain from scratch and delivered MultiChat LLM features — React, TypeScript, Next.js, Single-SPA, Playwright.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="architecture.html">Architecture</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="depth.html">Engineering Depth</a></li>
+          <li><a href="stack.html">Tech Stack</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>More</h4>
+        <ul>
+          <li><a href="projects.html">Ragbrain AI Platform</a></li>
+          <li><a href="projects.html">MultiChat LLM</a></li>
+          <li><a href="cv.html">CV</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ogechukwu · Frontend Engineer</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

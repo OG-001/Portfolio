@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Platform features built for Ragbrain (8 features) and MultiChat LLM (6 features)."/>
+  <title>Features | Ogechukwu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../assets/css/style.css?v=2"/>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="about.html" >About</a></li>
+      <li><a href="projects.html" >Projects</a></li>
+      <li><a href="architecture.html" >Architecture</a></li>
+      <li><a href="features.html" class="active">Features</a></li>
+      <li><a href="depth.html" >Depth</a></li>
+      <li><a href="stack.html" >Stack</a></li>
+      <li><a href="contact.html">Hire Me</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<section class="section" style="padding-top:6rem;">
+  <div class="container">
+    <div class="page-header-row">
+    <a href="javascript:history.back()" class="page-back-btn" aria-label="Go back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    </a>
+    <div class="section-header fade-in">
+      <span class="section-tag">What I Built</span>
+      <h2>Platform <span class="grad">Features</span></h2>
+      <p>Select a project to see the features designed and delivered.</p>
+    </div>
+    </div>
+    <div class="arch-container fade-in">
+      <div class="arch-tabs">
+        <div class="arch-tab active" data-panel="feat-ragbrain">Ragbrain (8 features)</div>
+        <div class="arch-tab" data-panel="feat-multichat">MultiChat LLM (6 features)</div>
+      </div>
+      <div id="panel-feat-ragbrain" class="arch-panel active">
+        <div class="features-grid">
+          <div class="feat-card">
+            <span class="feat-icon">🤖</span>
+            <h3>AI Task Execution</h3>
+            <p>3-panel task runner with dynamic parameter forms, real-time SSE streaming, configurable LLM provider/model, agent type and reasoning level control.</p>
+            <div class="feat-tags"><span>useReducer</span><span>SSE</span><span>Streaming</span></div>
+          </div>
+          <div class="feat-card">
+            <span class="feat-icon">📄</span>
+            <h3>RAG Document Ingestion</h3>
+            <p>Multi-file batch upload with configurable batch size, delay, per-document progress, chunking strategy, embedding model, and vector dimension settings.</p>
+            <div class="feat-tags"><span>Batch Upload</span><span>ElasticSearch</span><span>bge-m3</span></div>
+          </div>
+          <div class="feat-card">
+            <span class="feat-icon">🔍</span>
+            <h3>LLM Data Extraction</h3>
+            <p>Chat-style extraction backed by RAG retrieval. Streaming responses, session persistence, advanced strategy config, multi-provider selection.</p>
+            <div class="feat-tags"><span>RAG</span><span>Chat UI</span><span>LocalStorage</span></div>
+          </div>
+          <div class="feat-card">
+            <span class="feat-icon">🔐</span>
+            <h3>Auth0 Authentication</h3>
+            <p>Full PKCE flow, silent token refresh, localStorage caching, Auth Bridge pattern exposing <code>getAccessTokenSilently()</code> to all MFEs via <code>window.shellAuth</code>.</p>
+            <div class="feat-tags"><span>Auth0</span><span>PKCE</span><span>JWT</span></div>
+          </div>
+          <div class="feat-card">
+            <span class="feat-icon">⚡</span>
+            <h3>Real-Time Streaming</h3>
+            <p>SSE integration with a <code>useReducer</code> state machine (idle → submitting → streaming → done/error), agent event parsing, <code>useRef</code> abort controller.</p>
+            <div class="feat-tags"><span>SSE</span><span>useReducer</span><span>State Machine</span></div>
+          </div>
+          <div class="feat-card">
+            <span class="feat-icon">🌐</span>
+            <h3>Multi-Provider AI</h3>
+            <p>Dynamic provider + model dropdowns from <code>/llm/providers</code> API. Automatic model reset when provider changes. OpenAI, OpenRouter, Anthropic.</p>
+            <div class="feat-tags"><span>OpenAI</span><span>OpenRouter</span><span>Anthropic</span></div>
+          </div>
+          <div class="feat-card">
+            <span class="feat-icon">🎨</span>
+            <h3>Theme System</h3>
+            <p>Runtime dark/light/system switching via <code>ThemeContext</code>. Preference persisted in localStorage, applied consistently across all 5 microfrontends.</p>
+            <div class="feat-tags"><span>ThemeContext</span><span>localStorage</span><span>CSS Variables</span></div>
+          </div>
+          <div class="feat-card">
+            <span class="feat-icon">💬</span>
+            <h3>LibreChat Integration</h3>
+            <p>Integrated the full LibreChat open-source chat UI as a dedicated MFE via a React 17 compatibility wrapper, bridged into the React 18 Single-SPA shell.</p>
+            <div class="feat-tags"><span>LibreChat</span><span>React 17</span><span>Jotai</span></div>
+          </div>
+        </div>
+      </div>
+      <div id="panel-feat-multichat" class="arch-panel">
+        <div class="features-grid">
+          <div class="feat-card">
+            <span class="feat-icon">📊</span>
+            <h3>User Statistics Dashboard</h3>
+            <p>Full self-service analytics page. Time-range filters (7d–All), KPI summary cards, area chart, per-model token breakdown, recent sessions list.</p>
+            <div class="feat-tags"><span>SWR</span><span>AreaChart</span><span>TypeScript</span></div>
+          </div>
+          <div class="feat-card">
+            <span class="feat-icon">🔖</span>
+            <h3>Multi-Level Prompt Selector</h3>
+            <p>Reusable Popover with two-tier hierarchy: company-wide global prompts by category and user-defined individual prompts. Real-time search + checkbox selection.</p>
+            <div class="feat-tags"><span>Popover</span><span>SWR</span><span>useMemo</span></div>
+          </div>
+          <div class="feat-card">
+            <span class="feat-icon">💬</span>
+            <h3>Chat Mode Indicator Bar</h3>
+            <p>Refactored from floating button to persistent top-bar showing active assistant + LLM model. ChatInfoPanel toggle repositioned into the bar.</p>
+            <div class="feat-tags"><span>ChatUI.tsx</span><span>SvgSliders</span><span>Tailwind</span></div>
+          </div>
+          <div class="feat-card">
+            <span class="feat-icon">🛡</span>
+            <h3>Admin Prompt Form Extension</h3>
+            <p>Added category dropdown (Company / Systems &amp; Software / CRM) to the global-prompt admin form with Formik + Yup validation and full TypeScript propagation.</p>
+            <div class="feat-tags"><span>Formik</span><span>Yup</span><span>TypeScript</span></div>
+          </div>
+          <div class="feat-card">
+            <span class="feat-icon">🗂</span>
+            <h3>Project Prompt Selector</h3>
+            <p>Assigns a global prompt to a project context panel. Async loading, optimistic REST PUT updates, read-only view for non-owner members.</p>
+            <div class="feat-tags"><span>useCallback</span><span>REST PUT</span></div>
+          </div>
+          <div class="feat-card">
+            <span class="feat-icon">🧪</span>
+            <h3>Playwright E2E Tests</h3>
+            <p>Two test suites with dedicated Playwright config files: chat-mode-display (mode bar, info panel toggle) and prompt-selector (popover, categories, search, insertion). 40+ test cases.</p>
+            <div class="feat-tags"><span>Playwright</span><span>E2E</span><span>40+ cases</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Frontend Engineer</h3>
+        <p>Built Ragbrain from scratch and delivered MultiChat LLM features — React, TypeScript, Next.js, Single-SPA, Playwright.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="architecture.html">Architecture</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="depth.html">Engineering Depth</a></li>
+          <li><a href="stack.html">Tech Stack</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>More</h4>
+        <ul>
+          <li><a href="projects.html">Ragbrain AI Platform</a></li>
+          <li><a href="projects.html">MultiChat LLM</a></li>
+          <li><a href="cv.html">CV</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ogechukwu · Frontend Engineer</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

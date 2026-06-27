@@ -1,0 +1,10 @@
+# Scratch / draft files
+assets/js/cv.md
+pages/ragbrain-old.html
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

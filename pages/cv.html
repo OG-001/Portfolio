@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eleodimuo Ogechukwu Nnenna — CV · Frontend Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../assets/css/style.css?v=2"/>
+  <style>
+    /* ── CV page shell ── */
+    .cv-page { background: var(--bg-base); min-height: 100vh; padding: 7rem 0 5rem; }
+    .cv-wrap { max-width: 820px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ── Actions bar ── */
+    .cv-actions { display: flex; gap: 1rem; margin-bottom: 2.25rem; flex-wrap: wrap; }
+
+    /* ── Paper card — the visual "document" ── */
+    .cv-paper {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+    }
+
+    /* ── Coloured top band ── */
+    .cv-band {
+      background: linear-gradient(120deg, #4f46e5 0%, #6366f1 50%, #06b6d4 100%);
+      padding: 1.5rem 2.25rem 1.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .cv-band::after {
+      content: '';
+      position: absolute;
+      right: -60px; top: -60px;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+    }
+    .cv-name {
+      font-size: 1.65rem; font-weight: 800; letter-spacing: -0.02em;
+      color: #fff; line-height: 1.15;
+    }
+    .cv-role {
+      font-size: 0.8rem; font-weight: 500;
+      color: rgba(255,255,255,0.78);
+      margin: 0.25rem 0 0.85rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .cv-contact-row {
+      display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem;
+      font-size: 0.78rem; color: rgba(255,255,255,0.85);
+    }
+    .cv-contact-item { display: flex; align-items: center; gap: 0.4rem; }
+    .cv-contact-item svg { flex-shrink: 0; opacity: 0.75; }
+
+    /* ── Body of the CV ── */
+    .cv-body { padding: 1.4rem 2.25rem 1.75rem; }
+
+    /* ── Section title with divider ── */
+    .cv-sec {
+      margin-bottom: 1.75rem;
+    }
+    .cv-sec-title {
+      display: flex; align-items: center; gap: 0.75rem;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.65rem;
+    }
+    .cv-sec-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── Item rows (experience, education) ── */
+    .cv-item { margin-bottom: 0; }
+    .cv-item + .cv-item { margin-top: 1.25rem; }
+    .cv-item-head {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; flex-wrap: wrap; gap: 0.2rem;
+      margin-bottom: 0.35rem;
+    }
+    .cv-item-title { font-size: 0.95rem; font-weight: 700; color: var(--text-1); }
+    .cv-item-sub { font-size: 0.82rem; color: var(--accent-3); font-weight: 500; }
+    .cv-item-date {
+      font-size: 0.75rem; color: var(--text-3);
+      white-space: nowrap;
+      background: rgba(99,102,241,0.09);
+      border: 1px solid rgba(99,102,241,0.18);
+      border-radius: 20px;
+      padding: 0.15rem 0.65rem;
+      font-weight: 500;
+    }
+
+    /* ── Bullet list ── */
+    .cv-list {
+      padding-left: 0; list-style: none;
+      margin: 0.5rem 0 0;
+    }
+    .cv-list li {
+      position: relative;
+      padding-left: 1.1rem;
+      font-size: 0.82rem;
+      color: var(--text-2);
+      line-height: 1.55;
+      margin-bottom: 0.5rem;
+    }
+    .cv-list li::before {
+      content: '▸';
+      position: absolute; left: 0;
+      color: var(--accent);
+      font-size: 0.7rem;
+      top: 0.28rem;
+    }
+
+    /* ── Horizontal rule divider between bullets ── */
+    .cv-divider {
+      border: none;
+      border-top: 1px solid rgba(99,102,241,0.2);
+      margin: 0.35rem 0;
+    }
+
+    /* ── Skills chips ── */
+    .cv-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .cv-chip {
+      font-size: 0.75rem; font-weight: 500;
+      padding: 0.2rem 0.65rem;
+      border-radius: 20px;
+      background: rgba(99,102,241,0.09);
+      border: 1px solid rgba(99,102,241,0.22);
+      color: var(--text-2);
+    }
+    .cv-chip.hi {
+      background: rgba(6,182,212,0.09);
+      border-color: rgba(6,182,212,0.22);
+      color: var(--accent-3);
+    }
+
+    /* ── Two-column layout for skills + education side-by-side ── */
+    .cv-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+    /* ── Objective block ── */
+    .cv-objective {
+      font-size: 0.82rem;
+      line-height: 1.65;
+      color: var(--text-2);
+      border-left: 3px solid var(--accent);
+      padding-left: 1rem;
+      margin: 0;
+    }
+
+    /* ── Cert list ── */
+    .cv-cert {
+      font-size: 0.82rem; color: var(--text-2);
+      line-height: 1.6;
+      padding-left: 1.1rem;
+      border-left: 2px solid rgba(99,102,241,0.25);
+      margin-bottom: 0.9rem;
+    }
+    .cv-cert strong { color: var(--text-1); }
+    .cv-cert-issuer { color: var(--text-3); font-size: 0.76rem; }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .cv-band { padding: 2rem 1.5rem 1.5rem; }
+      .cv-body { padding: 1.75rem 1.5rem 2rem; }
+      .cv-name { font-size: 1.7rem; }
+      .cv-cols { grid-template-columns: 1fr; gap: 0; }
+    }
+
+    /* ── Print styles: clean 2-page output ── */
+    @page {
+      margin: 1.1cm 1cm 1cm;
+      size: A4;
+    }
+    @media print {
+      html, body { overflow: visible !important; background: #fff; }
+      .nav, .cv-actions, body::before { display: none !important; }
+      /* Force all fade-in elements visible — no scroll in print */
+      .fade-in { opacity: 1 !important; transform: none !important; }
+      .cv-page { padding: 0; background: #fff; min-height: 0; overflow: visible !important; }
+      .cv-wrap { overflow: visible !important; height: auto !important; }
+      .cv-paper { box-shadow: none; border: none; border-radius: 0; overflow: visible !important; height: auto !important; background: #fff !important; }
+      .cv-band {
+        -webkit-print-color-adjust: exact; print-color-adjust: exact;
+        padding: 0.95rem 1.75rem 0.8rem;
+        overflow: visible !important; height: auto !important;
+      }
+      .cv-body { padding: 0.85rem 1.75rem 0.9rem; overflow: visible !important; height: auto !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      /* Collapse grid to single column so print engine can't drop a column */
+      .cv-cols { display: block !important; }
+      .cv-cols > * + * { margin-top: 1.75rem; }
+      /* Ensure all body text is dark/readable on white paper */
+      .cv-body, .cv-body * { color: #1a1a2e !important; }
+      .cv-item-title { color: #0f0f1a !important; }
+      .cv-item-sub { color: #2d3561 !important; }
+      .cv-item-date { color: #444 !important; background: #f0f0f8 !important; border-color: #c0c0e0 !important; }
+      .cv-list li { color: #222 !important; }
+      .cv-list li::before { color: #4f46e5 !important; }
+      .cv-objective { color: #222 !important; border-left-color: #4f46e5 !important; }
+      .cv-sec-title { color: #4f46e5 !important; }
+      .cv-sec-title::after { background: #c0c0e0 !important; }
+      .cv-chip { color: #333 !important; background: #f0f0f8 !important; border-color: #c0c0e0 !important; }
+      .cv-chip.hi { color: #2d3561 !important; background: #e8eaf8 !important; border-color: #9da8e8 !important; }
+      .cv-cert { color: #222 !important; border-left-color: #c0c0e0 !important; }
+      .cv-cert strong { color: #0f0f1a !important; }
+      .cv-cert-issuer { color: #555 !important; }
+      .cv-divider { border-color: #ddd !important; }
+      .cv-name { font-size: 1.75rem; }
+      .cv-role { font-size: 0.9rem; margin: 0.2rem 0 0.65rem; }
+      .cv-contact-row { font-size: 0.85rem; }
+      .cv-sec { margin-bottom: 0.72rem; }
+      .cv-sec-title { font-size: 0.78rem; margin-bottom: 0.4rem; }
+      .cv-item-title { font-size: 1.03rem; }
+      .cv-item-sub { font-size: 0.91rem; }
+      .cv-item-date { font-size: 0.84rem; }
+      .cv-list li { font-size: 0.91rem; line-height: 1.53; margin-bottom: 0.4rem; }
+      .cv-divider { margin: 0.22rem 0 !important; }
+      .cv-objective { font-size: 0.91rem; line-height: 1.57; }
+      .cv-item-head { margin-bottom: 0.26rem; }
+      .cv-item + .cv-item { margin-top: 0.42rem; }
+      .cv-chip { font-size: 0.79rem; padding: 0.13rem 0.53rem; }
+      .cv-cert { font-size: 0.91rem; line-height: 1.53; margin-bottom: 0.38rem; }
+      .cv-cert-issuer { font-size: 0.82rem; }
+      .cv-cols > * + * { margin-top: 1.1rem; }
+      /* Keep each job entry together — prevent title orphaning */
+      .cv-item { break-inside: avoid; }
+      .cv-cert { break-inside: avoid; }
+      .cv-divider { margin: 0.18rem 0 !important; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">← Portfolio</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="cv-page">
+  <div class="cv-wrap">
+
+    <!-- Actions -->
+    <div class="cv-actions fade-in">
+      <button onclick="window.print()" class="btn btn-primary" style="cursor:pointer;border:none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Print / Save as PDF
+      </button>
+      <a href="../index.html" class="btn btn-outline">← View Portfolio</a>
+    </div>
+
+    <!-- CV Paper -->
+    <div class="cv-paper fade-in stagger-1">
+
+      <!-- ══ Header Band ══ -->
+      <div class="cv-band">
+        <div class="cv-name">Eleodimuo Ogechukwu Nnenna</div>
+        <div class="cv-role">Frontend Engineer &nbsp;·&nbsp; React &nbsp;·&nbsp; TypeScript &nbsp;·&nbsp; Microfrontend Architecture</div>
+        <div class="cv-contact-row">
+          <span class="cv-contact-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            +234 806 922 7457
+          </span>
+          <span class="cv-contact-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            og.eleodimuo@gmail.com
+          </span>
+          <span class="cv-contact-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+            github.com/OG-001
+          </span>
+          <span class="cv-contact-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Nnewi, Anambra State, Nigeria
+          </span>
+        </div>
+      </div>
+
+      <!-- ══ CV Body ══ -->
+      <div class="cv-body">
+
+        <!-- OBJECTIVE -->
+        <div class="cv-sec fade-in">
+          <div class="cv-sec-title">Objective</div>
+          <p class="cv-objective">
+            Results-driven frontend engineer with hands-on experience architecting production AI platforms, offline-first healthcare systems, and responsive company websites.
+            I specialise in React + TypeScript, microfrontend architecture, and offline-first PWA design, from 5-MFE Single-SPA shells with real-time LLM streaming to NDPA-compliant digital health systems for Nigerian Primary Health Centres.
+            Goal: join a forward-thinking team where ownership, architecture depth, and a bias for clean, maintainable code drive measurable product impact.
+          </p>
+        </div>
+
+        <!-- WORK EXPERIENCE -->
+        <div class="cv-sec fade-in">
+          <div class="cv-sec-title">Work Experience</div>
+
+          <!-- MultiChat -->
+          <div class="cv-item">
+            <div class="cv-item-head">
+              <div>
+                <div class="cv-item-title">Frontend Engineer</div>
+                <div class="cv-item-sub">MultiChat LLM · Enterprise AI Platform (Onyx Extension)</div>
+                <div class="cv-item-sub" style="color:var(--text-3);font-size:0.78rem;">ML Art · Larnaca, Cyprus</div>
+              </div>
+              <div class="cv-item-date">2026</div>
+            </div>
+            <ul class="cv-list">
+              <li>Built the <strong>User Statistics Dashboard</strong> (<code>/user/statistics</code>): SWR data fetching, KPI cards, area chart with daily history, per-model token breakdown, and time-range filtering (7d / 30d / 90d / All).</li>
+              <li>Developed the <strong>Multi-Level Prompt Selector</strong>: Popover with two-tier hierarchy, real-time search, collapsible sections, and direct chat-input insertion.</li>
+              <li>Refactored the <strong>Chat Mode Indicator Bar</strong> from a floating button into a persistent top-bar with active assistant name, LLM model badge, and inline ChatInfoPanel toggle.</li>
+              <li>Extended the <strong>Admin Global Prompt Form</strong> (Formik + Yup) with a category field; propagated the new type through <code>GlobalPromptSnapshot</code> across the full component tree.</li>
+              <li>Authored <strong>40+ Playwright E2E tests</strong> across two suites (<code>chat-mode-display</code>, <code>prompt-selector</code>) with 100% pass rate; consumed 15+ REST endpoints with SWR error-handling patterns.</li>
+            </ul>
+          </div>
+
+          <!-- PHC-Track -->
+          <div class="cv-item">
+            <div class="cv-item-head">
+              <div>
+                <div class="cv-item-title">Sole Architect &amp; Engineer</div>
+                <div class="cv-item-sub">PHC-Track · Offline-First Digital Health Platform (Open Source)</div>
+                <div class="cv-item-sub" style="color:var(--text-3);font-size:0.78rem;">Nnewi North LGA, Anambra State</div>
+              </div>
+              <div class="cv-item-date">2026</div>
+            </div>
+            <ul class="cv-list">
+              <li>Designed and built an <strong>offline-first PWA</strong> for 10 Primary Health Centres across Nnewi North LGA using React + TypeScript + Vite, Dexie (IndexedDB) for local storage, service worker sync engine, NestJS REST API, and PostgreSQL.</li>
+              <li>Architected 10 core modules from scratch: Patient Registration, EMR, Maternal Health (ANC/PNC), Immunization Tracking (NPI schedule), Queue Management, Staff RBAC, SMS Notifications, Offline Sync Engine, NHMIS Reporting, and Admin Dashboard.</li>
+              <li>Built <strong>DHIS2-exportable NHMIS summaries</strong>; all patient data stays in Nigeria (NDPA 2023 compliant) via self-hosted Dockerized deployment; SMS via Africa's Talking + Termii adapters.</li>
+            </ul>
+          </div>
+
+          <!-- Freelance Websites -->
+          <div class="cv-item">
+            <div class="cv-item-head">
+              <div>
+                <div class="cv-item-title">Freelance Web Developer</div>
+                <div class="cv-item-sub">ogesoft.com &nbsp;·&nbsp; insightmesh-ai.com</div>
+              </div>
+              <div class="cv-item-date">2025 – 2026</div>
+            </div>
+            <ul class="cv-list">
+              <li>Designed and shipped 2 responsive company websites for AI and tech startups, end-to-end from design implementation to live deployment.</li>
+            </ul>
+          </div>
+
+          <!-- Ragbrain -->
+          <div class="cv-item">
+            <div class="cv-item-head">
+              <div>
+                <div class="cv-item-title">Sole Frontend Architect &amp; Engineer</div>
+                <div class="cv-item-sub">Ragbrain · AI Document Intelligence Platform (Production)</div>
+                <div class="cv-item-sub" style="color:var(--text-3);font-size:0.78rem;">ML Art · Larnaca, Cyprus</div>
+              </div>
+              <div class="cv-item-date">2024 – 2025</div>
+            </div>
+            <ul class="cv-list">
+              <li>Designed and built the entire frontend from scratch as a <strong>5-MFE Single-SPA</strong> application with Webpack 5 Module Federation, enabling fully independent per-MFE deployments on Cloudflare Pages.</li>
+              <li>Engineered an <strong>Auth Bridge pattern</strong>: shell-only Auth0 PKCE flow exposing a typed <code>window.shellAuth</code> contract, eliminating React Context singleton conflicts across all five microfrontends.</li>
+              <li>Built a <strong>real-time LLM task runner</strong> using SSE streaming with a <code>useReducer</code> state machine and <code>useRef</code> abort controller, covering idle to streaming to done/error transitions.</li>
+              <li>Implemented a <strong>split Cloudflare cache strategy</strong>: immutable hashed bundles at max-age=31536000; <code>remoteEntry.js</code> and <code>index.html</code> served no-cache for instant roll-outs.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- TECHNICAL SKILLS -->
+        <div class="cv-sec fade-in" style="margin-top:1.4rem;margin-bottom:0;">
+          <div class="cv-sec-title">Technical Skills</div>
+          <div class="cv-chips">
+            <span class="cv-chip hi">TypeScript</span>
+            <span class="cv-chip hi">React 18</span>
+            <span class="cv-chip hi">Next.js</span>
+            <span class="cv-chip hi">Single-SPA</span>
+            <span class="cv-chip hi">Webpack 5 Module Federation</span>
+            <span class="cv-chip">PWA / Service Worker</span>
+            <span class="cv-chip">Dexie / IndexedDB</span>
+            <span class="cv-chip">NestJS</span>
+            <span class="cv-chip">HTML5 / CSS3</span>
+            <span class="cv-chip">Tailwind CSS</span>
+            <span class="cv-chip">SWR</span>
+            <span class="cv-chip">Playwright</span>
+            <span class="cv-chip">Auth0 / OAuth2 / SAML</span>
+            <span class="cv-chip">REST APIs / SSE</span>
+            <span class="cv-chip">Git &amp; GitHub</span>
+            <span class="cv-chip">Cloudflare Pages</span>
+            <span class="cv-chip">Docker</span>
+            <span class="cv-chip">Android (Flutter)</span>
+          </div>
+        </div>
+
+        <!-- EDUCATION + CERTIFICATIONS side-by-side -->
+        <div class="cv-cols" style="margin-top:1.4rem;">
+
+          <!-- Education -->
+          <div class="cv-sec fade-in" style="margin-bottom:0;">
+            <div class="cv-sec-title">Education</div>
+
+            <div class="cv-item">
+              <div class="cv-item-head">
+                <div>
+                  <div class="cv-item-title">B.Sc Biochemistry</div>
+                  <div class="cv-item-sub">Nnamdi Azikiwe University, Awka</div>
+                </div>
+                <div class="cv-item-date">2021</div>
+              </div>
+            </div>
+
+            <div class="cv-item">
+              <div class="cv-item-head">
+                <div>
+                  <div class="cv-item-title">SSCE</div>
+                  <div class="cv-item-sub">Fed. Govt. Girls' College, Onitsha</div>
+                </div>
+                <div class="cv-item-date">2012</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Certifications -->
+          <div class="cv-sec fade-in" style="margin-bottom:0;">
+            <div class="cv-sec-title">Certifications</div>
+
+            <div class="cv-cert">
+              <strong>Programming Fundamentals in Kotlin</strong><br/>
+              <span class="cv-cert-issuer">Coursera · Meta · March 2024</span>
+            </div>
+
+            <div class="cv-cert">
+              <strong>Introduction to Android Mobile App Development</strong><br/>
+              <span class="cv-cert-issuer">Coursera · Meta · December 2023</span>
+            </div>
+
+            <div class="cv-cert">
+              <strong>Website Design</strong><br/>
+              <span class="cv-cert-issuer">Solution Innovation District · Microsoft &amp; Wootlab Foundation · April 2023</span>
+            </div>
+
+          </div>
+
+        </div><!-- /.cv-cols -->
+
+        <!-- PROFESSIONAL DEVELOPMENT -->
+        <div class="cv-sec fade-in" style="margin-bottom:0;margin-top:1.4rem;">
+          <div class="cv-sec-title">Professional Development</div>
+          <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+            <div>
+              <div class="cv-item-title" style="font-size:0.9rem;">Women Techsters Fellowship Programme</div>
+              <div class="cv-item-sub" style="font-size:0.8rem;">Selective technology fellowship for women in tech across Africa</div>
+            </div>
+            <div class="cv-item-date">Fellowship</div>
+          </div>
+        </div>
+
+        <!-- FOOTER NOTE -->
+        <p style="font-size:0.75rem;color:var(--text-3);text-align:center;margin-top:1.25rem;letter-spacing:0.02em;">
+          References available on request &nbsp;·&nbsp; +234 806 922 7457 &nbsp;·&nbsp; og.eleodimuo@gmail.com
+        </p>
+
+      </div><!-- /.cv-body -->
+    </div><!-- /.cv-paper -->
+
+  </div><!-- /.cv-wrap -->
+</div><!-- /.cv-page -->
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

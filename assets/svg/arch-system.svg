@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" style="background:#0d0f14;border-radius:16px">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#0891b2;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#6366f1" opacity="0.7"/>
+    </marker>
+    <marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#64748b" opacity="0.6"/>
+    </marker>
+  </defs>
+
+  <!-- Background grid -->
+  <pattern id="grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  </pattern>
+  <rect width="1000" height="620" fill="url(#grid)"/>
+
+  <!-- Title -->
+  <text x="500" y="38" font-family="Inter,sans-serif" font-size="16" font-weight="700" fill="#f1f5f9" text-anchor="middle">MultiChat LLM — System Architecture</text>
+  <text x="500" y="58" font-family="Inter,sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Frontend Extension on Onyx Open-Source Platform</text>
+
+  <!-- ── LAYER LABELS ── -->
+  <text x="20" y="112" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#6366f1" letter-spacing="1.5" text-transform="uppercase">CLIENT LAYER</text>
+  <text x="20" y="252" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#06b6d4" letter-spacing="1.5">API GATEWAY</text>
+  <text x="20" y="392" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#10b981" letter-spacing="1.5">BACKEND SERVICES</text>
+  <text x="20" y="532" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#f59e0b" letter-spacing="1.5">DATA &amp; AI LAYER</text>
+
+  <!-- ── CLIENT LAYER ── -->
+  <!-- Next.js Frontend box -->
+  <rect x="80" y="80" width="840" height="120" rx="14" fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.25)" stroke-width="1.5" stroke-dasharray="6,3"/>
+  
+  <rect x="110" y="100" width="160" height="76" rx="10" fill="rgba(99,102,241,0.12)" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="190" y="133" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#818cf8" text-anchor="middle">📊 Statistics</text>
+  <text x="190" y="148" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Dashboard</text>
+  <text x="190" y="162" font-family="Inter,sans-serif" font-size="8.5" fill="#64748b" text-anchor="middle">SWR + AreaChart</text>
+
+  <rect x="295" y="100" width="160" height="76" rx="10" fill="rgba(99,102,241,0.12)" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="375" y="133" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#818cf8" text-anchor="middle">🔖 Prompt Selector</text>
+  <text x="375" y="148" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Multi-Level Component</text>
+  <text x="375" y="162" font-family="Inter,sans-serif" font-size="8.5" fill="#64748b" text-anchor="middle">Popover + Categories</text>
+
+  <rect x="480" y="100" width="160" height="76" rx="10" fill="rgba(99,102,241,0.12)" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="560" y="133" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#818cf8" text-anchor="middle">💬 Chat UI</text>
+  <text x="560" y="148" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Mode Indicator Bar</text>
+  <text x="560" y="162" font-family="Inter,sans-serif" font-size="8.5" fill="#64748b" text-anchor="middle">ChatUI.tsx Extension</text>
+
+  <rect x="665" y="100" width="160" height="76" rx="10" fill="rgba(99,102,241,0.12)" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="745" y="133" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#818cf8" text-anchor="middle">🗂 Admin Prompts</text>
+  <text x="745" y="148" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">GlobalPromptForm</text>
+  <text x="745" y="162" font-family="Inter,sans-serif" font-size="8.5" fill="#64748b" text-anchor="middle">Category + Formik</text>
+
+  <text x="836" y="150" font-family="Inter,sans-serif" font-size="9" fill="#6366f1" text-anchor="middle" font-style="italic">Next.js 16</text>
+  <text x="836" y="164" font-family="Inter,sans-serif" font-size="9" fill="#64748b" text-anchor="middle" font-style="italic">TypeScript</text>
+
+  <!-- Arrows down to API Gateway -->
+  <line x1="190" y1="200" x2="190" y2="240" stroke="#6366f1" stroke-width="1.5" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <line x1="375" y1="200" x2="375" y2="240" stroke="#6366f1" stroke-width="1.5" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <line x1="560" y1="200" x2="560" y2="240" stroke="#6366f1" stroke-width="1.5" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+  <line x1="745" y1="200" x2="745" y2="240" stroke="#6366f1" stroke-width="1.5" stroke-opacity="0.5" marker-end="url(#arrow)"/>
+
+  <!-- ── API GATEWAY ── -->
+  <rect x="80" y="220" width="840" height="120" rx="14" fill="rgba(6,182,212,0.05)" stroke="rgba(6,182,212,0.25)" stroke-width="1.5" stroke-dasharray="6,3"/>
+
+  <rect x="110" y="240" width="185" height="76" rx="10" fill="rgba(6,182,212,0.12)" stroke="#06b6d4" stroke-width="1.5"/>
+  <text x="203" y="275" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#22d3ee" text-anchor="middle">GET /usage/dashboard</text>
+  <text x="203" y="290" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">GET /usage/summary</text>
+  <text x="203" y="305" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">GET /usage/history</text>
+
+  <rect x="315" y="240" width="185" height="76" rx="10" fill="rgba(6,182,212,0.12)" stroke="#06b6d4" stroke-width="1.5"/>
+  <text x="408" y="275" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#22d3ee" text-anchor="middle">GET /global-prompt</text>
+  <text x="408" y="290" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">POST /admin/global-prompt</text>
+  <text x="408" y="305" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">GET /input_prompt</text>
+
+  <rect x="520" y="240" width="185" height="76" rx="10" fill="rgba(6,182,212,0.12)" stroke="#06b6d4" stroke-width="1.5"/>
+  <text x="613" y="275" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#22d3ee" text-anchor="middle">GET /global-mode</text>
+  <text x="613" y="290" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">POST /admin/global-mode</text>
+  <text x="613" y="305" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">GET /global-model</text>
+
+  <rect x="725" y="240" width="175" height="76" rx="10" fill="rgba(6,182,212,0.12)" stroke="#06b6d4" stroke-width="1.5"/>
+  <text x="813" y="275" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#22d3ee" text-anchor="middle">POST /admin/sso/config</text>
+  <text x="813" y="290" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">GET /admin/audit</text>
+  <text x="813" y="305" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">FastAPI  •  RBAC</text>
+
+  <!-- Arrows down -->
+  <line x1="203" y1="340" x2="203" y2="380" stroke="#06b6d4" stroke-width="1.5" stroke-opacity="0.5" marker-end="url(#arrow2)"/>
+  <line x1="408" y1="340" x2="408" y2="380" stroke="#06b6d4" stroke-width="1.5" stroke-opacity="0.5" marker-end="url(#arrow2)"/>
+  <line x1="613" y1="340" x2="613" y2="380" stroke="#06b6d4" stroke-width="1.5" stroke-opacity="0.5" marker-end="url(#arrow2)"/>
+  <line x1="812" y1="340" x2="812" y2="380" stroke="#06b6d4" stroke-width="1.5" stroke-opacity="0.5" marker-end="url(#arrow2)"/>
+
+  <!-- ── BACKEND SERVICES ── -->
+  <rect x="80" y="360" width="840" height="120" rx="14" fill="rgba(16,185,129,0.05)" stroke="rgba(16,185,129,0.25)" stroke-width="1.5" stroke-dasharray="6,3"/>
+
+  <rect x="110" y="380" width="185" height="76" rx="10" fill="rgba(16,185,129,0.12)" stroke="#10b981" stroke-width="1.5"/>
+  <text x="203" y="413" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#34d399" text-anchor="middle">Usage Tracker</text>
+  <text x="203" y="428" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Token counting</text>
+  <text x="203" y="443" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Cost calculation</text>
+
+  <rect x="315" y="380" width="185" height="76" rx="10" fill="rgba(16,185,129,0.12)" stroke="#10b981" stroke-width="1.5"/>
+  <text x="408" y="413" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#34d399" text-anchor="middle">Prompt Manager</text>
+  <text x="408" y="428" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">CRUD + ACL</text>
+  <text x="408" y="443" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Slug normalization</text>
+
+  <rect x="520" y="380" width="185" height="76" rx="10" fill="rgba(16,185,129,0.12)" stroke="#10b981" stroke-width="1.5"/>
+  <text x="613" y="413" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#34d399" text-anchor="middle">Mode / Model Engine</text>
+  <text x="613" y="428" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Global + Individual</text>
+  <text x="613" y="443" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">LiteLLM routing</text>
+
+  <rect x="725" y="380" width="175" height="76" rx="10" fill="rgba(16,185,129,0.12)" stroke="#10b981" stroke-width="1.5"/>
+  <text x="812" y="413" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#34d399" text-anchor="middle">Auth &amp; Audit</text>
+  <text x="812" y="428" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">SAML / Azure AD</text>
+  <text x="812" y="443" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Audit log retention</text>
+
+  <!-- Arrows down -->
+  <line x1="203" y1="480" x2="203" y2="520" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.5" marker-end="url(#arrow2)"/>
+  <line x1="500" y1="480" x2="500" y2="520" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.5" marker-end="url(#arrow2)"/>
+  <line x1="812" y1="480" x2="812" y2="520" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.5" marker-end="url(#arrow2)"/>
+
+  <!-- ── DATA LAYER ── -->
+  <rect x="80" y="500" width="840" height="100" rx="14" fill="rgba(245,158,11,0.05)" stroke="rgba(245,158,11,0.25)" stroke-width="1.5" stroke-dasharray="6,3"/>
+
+  <rect x="110" y="518" width="160" height="62" rx="10" fill="rgba(245,158,11,0.12)" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="190" y="546" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#fbbf24" text-anchor="middle">🐘 PostgreSQL</text>
+  <text x="190" y="561" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">SQLAlchemy ORM</text>
+
+  <rect x="295" y="518" width="160" height="62" rx="10" fill="rgba(245,158,11,0.12)" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="375" y="546" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#fbbf24" text-anchor="middle">🟥 Redis</text>
+  <text x="375" y="561" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Celery / Session</text>
+
+  <rect x="480" y="518" width="160" height="62" rx="10" fill="rgba(245,158,11,0.12)" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="560" y="546" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#fbbf24" text-anchor="middle">🔍 Vespa</text>
+  <text x="560" y="561" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Vector search</text>
+
+  <rect x="665" y="518" width="160" height="62" rx="10" fill="rgba(245,158,11,0.12)" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="745" y="546" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#fbbf24" text-anchor="middle">🤖 LLM Providers</text>
+  <text x="745" y="561" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">OpenAI · Anthropic · etc</text>
+
+  <!-- Legend -->
+  <rect x="846" y="518" width="60" height="62" rx="8" fill="rgba(255,255,255,0.03)" stroke="none"/>
+  <circle cx="856" cy="532" r="4" fill="#6366f1"/>
+  <text x="865" y="535" font-family="Inter,sans-serif" font-size="8" fill="#64748b">Frontend</text>
+  <circle cx="856" cy="548" r="4" fill="#10b981"/>
+  <text x="865" y="551" font-family="Inter,sans-serif" font-size="8" fill="#64748b">Backend</text>
+  <circle cx="856" cy="564" r="4" fill="#f59e0b"/>
+  <text x="865" y="567" font-family="Inter,sans-serif" font-size="8" fill="#64748b">Data</text>
+</svg>

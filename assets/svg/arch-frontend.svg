@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" style="background:#0d0f14;border-radius:16px">
+  <defs>
+    <linearGradient id="ga" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1"/>
+    </linearGradient>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#6366f1" opacity="0.8"/>
+    </marker>
+    <marker id="arr2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#10b981" opacity="0.8"/>
+    </marker>
+    <marker id="arr3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#06b6d4" opacity="0.8"/>
+    </marker>
+  </defs>
+  <pattern id="gr2" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
+  </pattern>
+  <rect width="900" height="500" fill="url(#gr2)"/>
+
+  <text x="450" y="36" font-family="Inter,sans-serif" font-size="15" font-weight="700" fill="#f1f5f9" text-anchor="middle">Frontend Component Architecture</text>
+  <text x="450" y="54" font-family="Inter,sans-serif" font-size="10" fill="#64748b" text-anchor="middle">React component tree — new &amp; modified files highlighted</text>
+
+  <!-- ── Root App ── -->
+  <rect x="365" y="70" width="170" height="52" rx="10" fill="rgba(99,102,241,0.15)" stroke="#6366f1" stroke-width="2"/>
+  <text x="450" y="92" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#818cf8" text-anchor="middle">Next.js App Router</text>
+  <text x="450" y="108" font-family="Inter,sans-serif" font-size="9" fill="#64748b" text-anchor="middle">web/src/app/</text>
+
+  <!-- Branches from root -->
+  <line x1="450" y1="154" x2="160" y2="195" stroke="#6366f1" stroke-width="1.5" stroke-opacity="0.4" marker-end="url(#arr)"/>
+  <line x1="450" y1="154" x2="450" y2="195" stroke="#6366f1" stroke-width="1.5" stroke-opacity="0.4" marker-end="url(#arr)"/>
+  <line x1="450" y1="154" x2="740" y2="195" stroke="#6366f1" stroke-width="1.5" stroke-opacity="0.4" marker-end="url(#arr)"/>
+  <line x1="450" y1="122" x2="450" y2="154" stroke="#6366f1" stroke-width="1.5" stroke-opacity="0.4"/>
+
+  <!-- ── Three main branches ── -->
+  <!-- Left: Chat UI -->
+  <rect x="55" y="195" width="210" height="52" rx="10" fill="rgba(99,102,241,0.12)" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="160" y="217" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#818cf8" text-anchor="middle">💬 Chat Route</text>
+  <text x="160" y="232" font-family="Inter,sans-serif" font-size="9" fill="#64748b" text-anchor="middle">sections/ChatUI.tsx ✏️</text>
+
+  <!-- Center: Admin -->
+  <rect x="345" y="195" width="210" height="52" rx="10" fill="rgba(139,92,246,0.12)" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="450" y="217" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#a78bfa" text-anchor="middle">🛡 Admin Route</text>
+  <text x="450" y="232" font-family="Inter,sans-serif" font-size="9" fill="#64748b" text-anchor="middle">app/admin/prompts/</text>
+
+  <!-- Right: User -->
+  <rect x="635" y="195" width="210" height="52" rx="10" fill="rgba(6,182,212,0.12)" stroke="#06b6d4" stroke-width="1.5"/>
+  <text x="740" y="217" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#22d3ee" text-anchor="middle">👤 User Route</text>
+  <text x="740" y="232" font-family="Inter,sans-serif" font-size="9" fill="#64748b" text-anchor="middle">app/user/statistics/ 🆕</text>
+
+  <!-- Chat sub-nodes -->
+  <line x1="115" y1="289" x2="115" y2="327" stroke="#6366f1" stroke-width="1" stroke-opacity="0.35" marker-end="url(#arr)"/>
+  <line x1="205" y1="289" x2="205" y2="327" stroke="#6366f1" stroke-width="1" stroke-opacity="0.35" marker-end="url(#arr)"/>
+  <line x1="160" y1="247" x2="160" y2="289" stroke="#6366f1" stroke-width="1" stroke-opacity="0.35"/>
+  <line x1="115" y1="289" x2="205" y2="289" stroke="#6366f1" stroke-width="1" stroke-opacity="0.35"/>
+
+  <rect x="50" y="327" width="130" height="54" rx="9" fill="rgba(99,102,241,0.1)" stroke="rgba(99,102,241,0.4)" stroke-width="1.5"/>
+  <text x="115" y="349" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="#818cf8" text-anchor="middle">ChatInputBar ✏️</text>
+  <text x="115" y="363" font-family="Inter,sans-serif" font-size="8.5" fill="#64748b" text-anchor="middle">Prompt Library btn</text>
+  <text x="115" y="377" font-family="Inter,sans-serif" font-size="8.5" fill="#64748b" text-anchor="middle">ChatInputBar.tsx</text>
+
+  <rect x="140" y="327" width="130" height="54" rx="9" fill="rgba(99,102,241,0.1)" stroke="rgba(99,102,241,0.4)" stroke-width="1.5"/>
+  <text x="205" y="349" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="#818cf8" text-anchor="middle">ProjectContext ✏️</text>
+  <text x="205" y="363" font-family="Inter,sans-serif" font-size="8.5" fill="#64748b" text-anchor="middle">Mode info display</text>
+  <text x="205" y="377" font-family="Inter,sans-serif" font-size="8.5" fill="#64748b" text-anchor="middle">ProjectContextPanel</text>
+
+  <!-- ChatInputBar → MultiLevelPromptSelector -->
+  <line x1="115" y1="381" x2="115" y2="420" stroke="#6366f1" stroke-width="1" stroke-opacity="0.35" marker-end="url(#arr)"/>
+  <rect x="50" y="420" width="130" height="54" rx="9" fill="rgba(99,102,241,0.18)" stroke="#6366f1" stroke-width="2"/>
+  <text x="115" y="442" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="#a5b4fc" text-anchor="middle">MultiLevel 🆕</text>
+  <text x="115" y="456" font-family="Inter,sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">PromptSelector</text>
+  <text x="115" y="470" font-family="Inter,sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Global + Individual</text>
+
+  <!-- ProjectContext → ProjectPromptSelector -->
+  <line x1="205" y1="381" x2="205" y2="420" stroke="#6366f1" stroke-width="1" stroke-opacity="0.35" marker-end="url(#arr)"/>
+  <rect x="140" y="420" width="130" height="54" rx="9" fill="rgba(99,102,241,0.15)" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="205" y="442" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="#a5b4fc" text-anchor="middle">ProjectPrompt 🆕</text>
+  <text x="205" y="456" font-family="Inter,sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Selector</text>
+  <text x="205" y="470" font-family="Inter,sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Owner CRUD</text>
+
+  <!-- Admin sub-nodes -->
+  <line x1="402" y1="289" x2="402" y2="327" stroke="#8b5cf6" stroke-width="1" stroke-opacity="0.35" marker-end="url(#arr)"/>
+  <line x1="498" y1="289" x2="498" y2="327" stroke="#8b5cf6" stroke-width="1" stroke-opacity="0.35" marker-end="url(#arr)"/>
+  <line x1="450" y1="247" x2="450" y2="289" stroke="#8b5cf6" stroke-width="1" stroke-opacity="0.35"/>
+  <line x1="402" y1="289" x2="498" y2="289" stroke="#8b5cf6" stroke-width="1" stroke-opacity="0.35"/>
+
+  <rect x="340" y="327" width="125" height="54" rx="9" fill="rgba(139,92,246,0.1)" stroke="rgba(139,92,246,0.4)" stroke-width="1.5"/>
+  <text x="403" y="349" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="#a78bfa" text-anchor="middle">GlobalPromptForm ✏️</text>
+  <text x="403" y="363" font-family="Inter,sans-serif" font-size="8.5" fill="#64748b" text-anchor="middle">+ Category field</text>
+  <text x="403" y="377" font-family="Inter,sans-serif" font-size="8.5" fill="#64748b" text-anchor="middle">Formik + Yup</text>
+
+  <rect x="472" y="327" width="125" height="54" rx="9" fill="rgba(139,92,246,0.1)" stroke="rgba(139,92,246,0.4)" stroke-width="1.5"/>
+  <text x="535" y="349" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="#a78bfa" text-anchor="middle">types.ts ✏️</text>
+  <text x="535" y="363" font-family="Inter,sans-serif" font-size="8.5" fill="#64748b" text-anchor="middle">+ category field</text>
+  <text x="535" y="377" font-family="Inter,sans-serif" font-size="8.5" fill="#64748b" text-anchor="middle">TypeScript types</text>
+
+  <!-- User sub-nodes -->
+  <line x1="697" y1="289" x2="697" y2="327" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.35" marker-end="url(#arr3)"/>
+  <line x1="783" y1="289" x2="783" y2="327" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.35" marker-end="url(#arr3)"/>
+  <line x1="740" y1="247" x2="740" y2="289" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.35"/>
+  <line x1="697" y1="289" x2="783" y2="289" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.35"/>
+
+  <rect x="635" y="327" width="125" height="54" rx="9" fill="rgba(6,182,212,0.1)" stroke="rgba(6,182,212,0.4)" stroke-width="1.5"/>
+  <text x="698" y="349" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="#22d3ee" text-anchor="middle">page.tsx 🆕</text>
+  <text x="698" y="363" font-family="Inter,sans-serif" font-size="8.5" fill="#64748b" text-anchor="middle">Stats dashboard</text>
+  <text x="698" y="377" font-family="Inter,sans-serif" font-size="8.5" fill="#64748b" text-anchor="middle">SWR + charts</text>
+
+  <rect x="721" y="327" width="125" height="54" rx="9" fill="rgba(6,182,212,0.1)" stroke="rgba(6,182,212,0.4)" stroke-width="1.5"/>
+  <text x="784" y="349" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="#22d3ee" text-anchor="middle">layout.tsx 🆕</text>
+  <text x="784" y="363" font-family="Inter,sans-serif" font-size="8.5" fill="#64748b" text-anchor="middle">Route wrapper</text>
+  <text x="784" y="377" font-family="Inter,sans-serif" font-size="8.5" fill="#64748b" text-anchor="middle">Statistics layout</text>
+
+  <!-- Shared component -->
+  <rect x="615" y="420" width="155" height="54" rx="9" fill="rgba(6,182,212,0.15)" stroke="#06b6d4" stroke-width="2"/>
+  <text x="693" y="442" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="#22d3ee" text-anchor="middle">SummaryCard 🆕</text>
+  <text x="693" y="456" font-family="Inter,sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">TimeRangeSelector</text>
+  <text x="693" y="470" font-family="Inter,sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Sub-components</text>
+  <line x1="698" y1="381" x2="693" y2="420" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.35" marker-end="url(#arr3)"/>
+
+  <!-- Legend -->
+  <rect x="32" y="72" width="95" height="68" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <text x="79" y="90" font-family="Inter,sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle" font-weight="600">LEGEND</text>
+  <text x="42" y="106" font-family="Inter,sans-serif" font-size="8" fill="#64748b">🆕  New file</text>
+  <text x="42" y="120" font-family="Inter,sans-serif" font-size="8" fill="#64748b">✏️  Modified</text>
+  <text x="42" y="134" font-family="Inter,sans-serif" font-size="8" fill="#64748b">by this developer</text>
+</svg>

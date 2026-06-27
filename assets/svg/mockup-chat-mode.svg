@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 380" style="background:#0d0f14;border-radius:16px">
+  <rect width="860" height="380" fill="#0d0f14" rx="16"/>
+  <pattern id="d3" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+    <circle cx="12" cy="12" r="0.4" fill="rgba(255,255,255,0.04)"/>
+  </pattern>
+  <rect width="860" height="380" fill="url(#d3)"/>
+
+  <text x="430" y="34" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#f1f5f9" text-anchor="middle">Chat UI — Mode Indicator Bar</text>
+  <text x="430" y="52" font-family="Inter,sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Persistent mode + model display at top of chat • Section 2.6 implementation</text>
+
+  <!-- Chat window frame -->
+  <rect x="60" y="68" width="740" height="298" rx="14" fill="#14171f" stroke="#252836" stroke-width="1.5"/>
+
+  <!-- ── MODE INDICATOR BAR (the new feature) ── -->
+  <rect x="60" y="68" width="740" height="40" rx="14" fill="#1a1d27"/>
+  <rect x="60" y="82" width="740" height="26" fill="#1a1d27"/>
+  <line x1="60" y1="108" x2="800" y2="108" stroke="#252836" stroke-width="1"/>
+
+  <!-- Sliders icon -->
+  <text x="84" y="90" font-family="Inter,sans-serif" font-size="12" fill="#64748b">⚙</text>
+
+  <!-- Mode name -->
+  <text x="104" y="92" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#94a3b8">CRM Analyst</text>
+
+  <!-- Separator dot -->
+  <circle cx="168" cy="88" r="2.5" fill="#475569"/>
+
+  <!-- Model name -->
+  <text x="178" y="92" font-family="Inter,sans-serif" font-size="10" fill="#64748b">gpt-4o</text>
+
+  <!-- Info button on the right -->
+  <rect x="750" y="76" width="30" height="24" rx="8" fill="rgba(255,255,255,0.04)" stroke="#252836" stroke-width="1"/>
+  <text x="765" y="92" font-family="Inter,sans-serif" font-size="11" fill="#64748b" text-anchor="middle">📊</text>
+
+  <!-- Annotation arrow pointing at bar -->
+  <path d="M 250 58 L 250 70" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="3,2" marker-end="url(#arrG)"/>
+  <defs>
+    <marker id="arrG" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#6366f1"/>
+    </marker>
+    <marker id="arrG2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#10b981"/>
+    </marker>
+  </defs>
+  <rect x="160" y="36" width="182" height="22" rx="8" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.35)" stroke-width="1"/>
+  <text x="251" y="52" font-family="Inter,sans-serif" font-size="9" fill="#818cf8" text-anchor="middle">NEW: Mode indicator bar</text>
+
+  <!-- Chat messages -->
+  <!-- AI message bubble -->
+  <rect x="80" y="120" width="500" height="72" rx="12" fill="rgba(255,255,255,0.04)"/>
+  <circle cx="102" cy="132" r="10" fill="rgba(99,102,241,0.2)"/>
+  <text x="102" y="137" font-family="Inter,sans-serif" font-size="8" fill="#818cf8" text-anchor="middle">AI</text>
+  <text x="122" y="133" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#94a3b8">CRM Analyst</text>
+  <text x="122" y="150" font-family="Inter,sans-serif" font-size="10" fill="#e2e8f0">I've analysed the Q4 pipeline data. Total deal value: €2.4M across</text>
+  <text x="122" y="165" font-family="Inter,sans-serif" font-size="10" fill="#e2e8f0">47 opportunities. Top segments...</text>
+  <text x="122" y="183" font-family="Inter,sans-serif" font-size="8.5" fill="#475569">2026-03-28 14:32:05 · 847 tokens · €0.042</text>
+
+  <!-- User message -->
+  <rect x="380" y="206" width="400" height="42" rx="12" fill="rgba(99,102,241,0.1)" stroke="rgba(99,102,241,0.2)" stroke-width="1"/>
+  <text x="400" y="222" font-family="Inter,sans-serif" font-size="10" fill="#c7d2fe">Can you break down by sales rep?</text>
+  <text x="400" y="240" font-family="Inter,sans-serif" font-size="8.5" fill="#475569">2026-03-28 14:32:41</text>
+
+  <!-- AI response streaming -->
+  <rect x="80" y="260" width="500" height="72" rx="12" fill="rgba(255,255,255,0.04)"/>
+  <circle cx="102" cy="272" r="10" fill="rgba(99,102,241,0.2)"/>
+  <text x="102" y="277" font-family="Inter,sans-serif" font-size="8" fill="#818cf8" text-anchor="middle">AI</text>
+  <text x="122" y="273" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#94a3b8">CRM Analyst</text>
+  <text x="122" y="290" font-family="Inter,sans-serif" font-size="10" fill="#e2e8f0">Top performers this quarter:</text>
+  <text x="122" y="305" font-family="Inter,sans-serif" font-size="10" fill="#e2e8f0">1. Anna K. — €520K  2. Tomasz W. — €480K  3. Maria P. —</text>
+
+  <!-- Streaming cursor -->
+  <rect x="400" y="299" width="2" height="12" rx="1" fill="#6366f1">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+  </rect>
+
+  <text x="122" y="323" font-family="Inter,sans-serif" font-size="8.5" fill="#475569">Responding... · GPT-4o · Est. €0.038</text>
+
+  <!-- Token counter annotation -->
+  <path d="M 500 295 L 620 270" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3,2" marker-end="url(#arrG2)"/>
+  <rect x="620" y="250" width="164" height="24" rx="8" fill="rgba(16,185,129,0.12)" stroke="rgba(16,185,129,0.25)" stroke-width="1"/>
+  <text x="702" y="266" font-family="Inter,sans-serif" font-size="9" fill="#34d399" text-anchor="middle">Live cost &amp; token tracking</text>
+
+  <!-- Reasoning toggle annotation -->
+  <rect x="620" y="285" width="160" height="24" rx="8" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.25)" stroke-width="1"/>
+  <text x="700" y="301" font-family="Inter,sans-serif" font-size="9" fill="#fbbf24" text-anchor="middle">Timestamps: YYYY-MM-DD</text>
+
+  <!-- ChatInfoPanel slide-in (right edge) -->
+  <rect x="720" y="108" width="80" height="256" rx="0" fill="#1a1d27" stroke="#252836" stroke-width="0"/>
+  <rect x="720" y="108" width="80" height="256" fill="#1a1d27"/>
+  <rect x="720" y="108" width="1" height="256" fill="#2e3248"/>
+  <text x="760" y="132" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" text-anchor="middle">Info</text>
+  <text x="760" y="154" font-family="Inter,sans-serif" font-size="8" fill="#64748b" text-anchor="middle">CRM Analyst</text>
+  <line x1="730" y1="162" x2="790" y2="162" stroke="#252836" stroke-width="1"/>
+  <text x="739" y="176" font-family="Inter,sans-serif" font-size="7.5" fill="#475569">Model</text>
+  <text x="739" y="189" font-family="Inter,sans-serif" font-size="8" fill="#94a3b8">GPT-4o</text>
+  <text x="739" y="206" font-family="Inter,sans-serif" font-size="7.5" fill="#475569">Tokens in</text>
+  <text x="739" y="219" font-family="Inter,sans-serif" font-size="8" fill="#94a3b8">12,847</text>
+  <text x="739" y="236" font-family="Inter,sans-serif" font-size="7.5" fill="#475569">Tokens out</text>
+  <text x="739" y="249" font-family="Inter,sans-serif" font-size="8" fill="#94a3b8">4,231</text>
+  <text x="739" y="266" font-family="Inter,sans-serif" font-size="7.5" fill="#475569">Cost</text>
+  <text x="739" y="279" font-family="Inter,sans-serif" font-size="8" fill="#fbbf24">€0.080</text>
+  <rect x="730" y="294" width="60" height="22" rx="8" fill="rgba(16,185,129,0.12)" stroke="rgba(16,185,129,0.25)" stroke-width="1"/>
+  <text x="760" y="309" font-family="Inter,sans-serif" font-size="7.5" fill="#34d399" text-anchor="middle">Export</text>
+</svg>

@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" style="background:#0d0f14;border-radius:16px">
+  <defs>
+    <linearGradient id="chartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0.5"/>
+      <stop offset="100%" style="stop-color:#6366f1;stop-opacity:0.02"/>
+    </linearGradient>
+    <linearGradient id="chartGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.4"/>
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.02"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="880" height="540" fill="#0d0f14" rx="16"/>
+  <pattern id="dot" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+    <circle cx="10" cy="10" r="0.5" fill="rgba(255,255,255,0.04)"/>
+  </pattern>
+  <rect width="880" height="540" fill="url(#dot)" rx="16"/>
+
+  <!-- Sidebar -->
+  <rect x="0" y="0" width="200" height="540" fill="#14171f" rx="16"/>
+  <rect x="184" y="0" width="16" height="540" fill="#14171f"/>
+  <rect x="199" y="0" width="1" height="540" fill="#252836"/>
+
+  <!-- Sidebar logo -->
+  <rect x="16" y="18" width="28" height="28" rx="8" fill="url(#cg1,#6366f1)"/>
+  <rect x="16" y="18" width="28" height="28" rx="8" fill="#6366f1"/>
+  <text x="30" y="37" font-family="Inter,sans-serif" font-size="13" font-weight="800" fill="white" text-anchor="middle">M</text>
+  <text x="56" y="29" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#f1f5f9">MultiChat</text>
+  <text x="56" y="42" font-family="Inter,sans-serif" font-size="9" fill="#64748b">Enterprise LLM</text>
+
+  <!-- Sidebar nav items -->
+  <rect x="12" y="72" width="176" height="32" rx="8" fill="rgba(99,102,241,0.12)"/>
+  <rect x="16" y="80" width="4" height="16" rx="2" fill="#6366f1"/>
+  <text x="32" y="93" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#818cf8">📊 Statistics</text>
+
+  <text x="28" y="128" font-family="Inter,sans-serif" font-size="10" fill="#64748b">💬 Chat</text>
+  <text x="28" y="152" font-family="Inter,sans-serif" font-size="10" fill="#64748b">🗂 Projects</text>
+  <text x="28" y="176" font-family="Inter,sans-serif" font-size="10" fill="#64748b">📚 Prompts</text>
+  <text x="28" y="200" font-family="Inter,sans-serif" font-size="10" fill="#64748b">⚙️ Settings</text>
+
+  <!-- User avatar bottom -->
+  <circle cx="28" cy="510" r="14" fill="rgba(99,102,241,0.2)" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="28" y="515" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#818cf8" text-anchor="middle">M</text>
+  <text x="50" y="507" font-family="Inter,sans-serif" font-size="9" font-weight="600" fill="#94a3b8">Michael K.</text>
+  <text x="50" y="519" font-family="Inter,sans-serif" font-size="8" fill="#64748b">Developer</text>
+
+  <!-- Main area -->
+  <!-- Header row -->
+  <text x="224" y="44" font-family="Inter,sans-serif" font-size="18" font-weight="800" fill="#f1f5f9">My Statistics</text>
+  <text x="224" y="62" font-family="Inter,sans-serif" font-size="10" fill="#64748b">Track your usage, token consumption, and activity</text>
+
+  <!-- Time range buttons -->
+  <rect x="620" y="28" width="38" height="24" rx="12" fill="rgba(255,255,255,0.05)" stroke="#252836" stroke-width="1"/>
+  <text x="639" y="44" font-family="Inter,sans-serif" font-size="9" fill="#64748b" text-anchor="middle">7d</text>
+  <rect x="663" y="28" width="38" height="24" rx="12" fill="rgba(255,255,255,0.05)" stroke="#252836" stroke-width="1"/>
+  <text x="682" y="44" font-family="Inter,sans-serif" font-size="9" fill="#64748b" text-anchor="middle">14d</text>
+  <rect x="706" y="28" width="38" height="24" rx="12" fill="#6366f1"/>
+  <text x="725" y="44" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="white" text-anchor="middle">30d</text>
+  <rect x="749" y="28" width="38" height="24" rx="12" fill="rgba(255,255,255,0.05)" stroke="#252836" stroke-width="1"/>
+  <text x="768" y="44" font-family="Inter,sans-serif" font-size="9" fill="#64748b" text-anchor="middle">90d</text>
+  <rect x="792" y="28" width="38" height="24" rx="12" fill="rgba(255,255,255,0.05)" stroke="#252836" stroke-width="1"/>
+  <text x="811" y="44" font-family="Inter,sans-serif" font-size="9" fill="#64748b" text-anchor="middle">All</text>
+
+  <!-- KPI Cards row -->
+  <rect x="216" y="76" width="152" height="72" rx="12" fill="#1a1d27" stroke="#252836" stroke-width="1"/>
+  <text x="232" y="96" font-family="Inter,sans-serif" font-size="9" fill="#64748b" text-transform="uppercase" letter-spacing="0.08em">CHAT SESSIONS</text>
+  <text x="232" y="124" font-family="Inter,sans-serif" font-size="26" font-weight="800" fill="#f1f5f9">247</text>
+  <text x="232" y="141" font-family="Inter,sans-serif" font-size="9" fill="#34d399">↑ 12% this period</text>
+
+  <rect x="380" y="76" width="152" height="72" rx="12" fill="#1a1d27" stroke="#252836" stroke-width="1"/>
+  <text x="396" y="96" font-family="Inter,sans-serif" font-size="9" fill="#64748b">MESSAGES</text>
+  <text x="396" y="124" font-family="Inter,sans-serif" font-size="26" font-weight="800" fill="#f1f5f9">1,842</text>
+  <text x="396" y="141" font-family="Inter,sans-serif" font-size="9" fill="#34d399">↑ 8% this period</text>
+
+  <rect x="544" y="76" width="152" height="72" rx="12" fill="#1a1d27" stroke="#252836" stroke-width="1"/>
+  <text x="560" y="96" font-family="Inter,sans-serif" font-size="9" fill="#64748b">TOTAL TOKENS</text>
+  <text x="560" y="124" font-family="Inter,sans-serif" font-size="26" font-weight="800" fill="#f1f5f9">2.4M</text>
+  <text x="560" y="141" font-family="Inter,sans-serif" font-size="9" fill="#fbbf24">↔ stable</text>
+
+  <rect x="708" y="76" width="152" height="72" rx="12" fill="#1a1d27" stroke="#252836" stroke-width="1"/>
+  <text x="724" y="96" font-family="Inter,sans-serif" font-size="9" fill="#64748b">MODELS USED</text>
+  <text x="724" y="124" font-family="Inter,sans-serif" font-size="26" font-weight="800" fill="#f1f5f9">5</text>
+  <text x="724" y="141" font-family="Inter,sans-serif" font-size="9" fill="#64748b">providers</text>
+
+  <!-- Chart area -->
+  <rect x="216" y="164" width="440" height="190" rx="12" fill="#1a1d27" stroke="#252836" stroke-width="1"/>
+  <text x="232" y="186" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#f1f5f9">Usage Over Time</text>
+  <text x="232" y="201" font-family="Inter,sans-serif" font-size="9" fill="#64748b">Daily message and session activity</text>
+
+  <!-- Area chart approximation -->
+  <!-- Messages area -->
+  <path d="M 240 315 L 265 298 L 290 308 L 315 285 L 340 275 L 365 260 L 390 270 L 415 250 L 440 243 L 465 255 L 490 240 L 515 235 L 540 244 L 565 228 L 590 235 L 615 222 L 625 215 L 625 340 L 240 340 Z" fill="url(#chartGrad)" stroke="none"/>
+  <path d="M 240 315 L 265 298 L 290 308 L 315 285 L 340 275 L 365 260 L 390 270 L 415 250 L 440 243 L 465 255 L 490 240 L 515 235 L 540 244 L 565 228 L 590 235 L 615 222 L 625 215" fill="none" stroke="#6366f1" stroke-width="2"/>
+  <!-- Sessions area -->
+  <path d="M 240 330 L 265 325 L 290 327 L 315 318 L 340 315 L 365 308 L 390 312 L 415 305 L 440 302 L 465 308 L 490 298 L 515 295 L 540 300 L 565 290 L 590 294 L 615 285 L 625 282 L 625 340 L 240 340 Z" fill="url(#chartGrad2)" stroke="none"/>
+  <path d="M 240 330 L 265 325 L 290 327 L 315 318 L 340 315 L 365 308 L 390 312 L 415 305 L 440 302 L 465 308 L 490 298 L 515 295 L 540 300 L 565 290 L 590 294 L 615 285 L 625 282" fill="none" stroke="#8b5cf6" stroke-width="2"/>
+
+  <!-- Chart axis labels -->
+  <text x="240" y="352" font-family="Inter,sans-serif" font-size="8" fill="#475569">Mar 1</text>
+  <text x="330" y="352" font-family="Inter,sans-serif" font-size="8" fill="#475569">Mar 8</text>
+  <text x="420" y="352" font-family="Inter,sans-serif" font-size="8" fill="#475569">Mar 15</text>
+  <text x="510" y="352" font-family="Inter,sans-serif" font-size="8" fill="#475569">Mar 22</text>
+  <text x="600" y="352" font-family="Inter,sans-serif" font-size="8" fill="#475569">Mar 29</text>
+
+  <!-- Legend chips -->
+  <circle cx="390" cy="220" r="4" fill="#6366f1"/>
+  <text x="398" y="224" font-family="Inter,sans-serif" font-size="8.5" fill="#94a3b8">Messages</text>
+  <circle cx="450" cy="220" r="4" fill="#8b5cf6"/>
+  <text x="458" y="224" font-family="Inter,sans-serif" font-size="8.5" fill="#94a3b8">Sessions</text>
+
+  <!-- Model breakdown table -->
+  <rect x="668" y="164" width="192" height="190" rx="12" fill="#1a1d27" stroke="#252836" stroke-width="1"/>
+  <text x="684" y="186" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#f1f5f9">By Model</text>
+
+  <!-- Table header -->
+  <text x="684" y="204" font-family="Inter,sans-serif" font-size="8" fill="#475569">MODEL</text>
+  <text x="796" y="204" font-family="Inter,sans-serif" font-size="8" fill="#475569">TOKENS</text>
+  <line x1="684" y1="208" x2="848" y2="208" stroke="#252836" stroke-width="1"/>
+
+  <!-- Table rows -->
+  <text x="684" y="224" font-family="Inter,sans-serif" font-size="9" fill="#e2e8f0">GPT-4o</text>
+  <text x="796" y="224" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8">892K</text>
+  <text x="684" y="241" font-family="Inter,sans-serif" font-size="9" fill="#e2e8f0">Claude 3.5</text>
+  <text x="796" y="241" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8">634K</text>
+  <text x="684" y="258" font-family="Inter,sans-serif" font-size="9" fill="#e2e8f0">Gemini 2.0</text>
+  <text x="796" y="258" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8">478K</text>
+  <text x="684" y="275" font-family="Inter,sans-serif" font-size="9" fill="#e2e8f0">DeepSeek</text>
+  <text x="796" y="275" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8">251K</text>
+  <text x="684" y="292" font-family="Inter,sans-serif" font-size="9" fill="#e2e8f0">Mistral</text>
+  <text x="796" y="292" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8">145K</text>
+
+  <!-- Mini bar chart in model table -->
+  <rect x="760" y="216" width="70" height="6" rx="3" fill="#252836"/>
+  <rect x="760" y="216" width="62" height="6" rx="3" fill="#6366f1"/>
+  <rect x="760" y="233" width="70" height="6" rx="3" fill="#252836"/>
+  <rect x="760" y="233" width="44" height="6" rx="3" fill="#8b5cf6"/>
+  <rect x="760" y="250" width="70" height="6" rx="3" fill="#252836"/>
+  <rect x="760" y="250" width="33" height="6" rx="3" fill="#06b6d4"/>
+  <rect x="760" y="267" width="70" height="6" rx="3" fill="#252836"/>
+  <rect x="760" y="267" width="17" height="6" rx="3" fill="#10b981"/>
+  <rect x="760" y="284" width="70" height="6" rx="3" fill="#252836"/>
+  <rect x="760" y="284" width="10" height="6" rx="3" fill="#f59e0b"/>
+
+  <!-- Recent sessions table -->
+  <rect x="216" y="368" width="644" height="152" rx="12" fill="#1a1d27" stroke="#252836" stroke-width="1"/>
+  <text x="232" y="390" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#f1f5f9">Recent Sessions</text>
+
+  <text x="232" y="410" font-family="Inter,sans-serif" font-size="8" fill="#475569">CONVERSATION</text>
+  <text x="450" y="410" font-family="Inter,sans-serif" font-size="8" fill="#475569">MODE</text>
+  <text x="560" y="410" font-family="Inter,sans-serif" font-size="8" fill="#475569">MESSAGES</text>
+  <text x="640" y="410" font-family="Inter,sans-serif" font-size="8" fill="#475569">LAST ACTIVE</text>
+  <line x1="232" y1="414" x2="844" y2="414" stroke="#252836" stroke-width="1"/>
+
+  <text x="232" y="432" font-family="Inter,sans-serif" font-size="9.5" fill="#e2e8f0">Q4 Sales Analysis with AI</text>
+  <rect x="448" y="423" width="72" height="16" rx="8" fill="rgba(99,102,241,0.15)"/>
+  <text x="484" y="435" font-family="Inter,sans-serif" font-size="8.5" fill="#818cf8" text-anchor="middle">CRM Analyst</text>
+  <text x="568" y="432" font-family="Inter,sans-serif" font-size="9.5" fill="#94a3b8">24</text>
+  <text x="638" y="432" font-family="Inter,sans-serif" font-size="9" fill="#64748b">2h ago</text>
+
+  <line x1="232" y1="442" x2="844" y2="442" stroke="#252836" stroke-width="0.5" stroke-opacity="0.5"/>
+
+  <text x="232" y="460" font-family="Inter,sans-serif" font-size="9.5" fill="#e2e8f0">Product roadmap ideation</text>
+  <rect x="448" y="451" width="64" height="16" rx="8" fill="rgba(16,185,129,0.12)"/>
+  <text x="480" y="463" font-family="Inter,sans-serif" font-size="8.5" fill="#34d399" text-anchor="middle">Strategist</text>
+  <text x="568" y="460" font-family="Inter,sans-serif" font-size="9.5" fill="#94a3b8">17</text>
+  <text x="638" y="460" font-family="Inter,sans-serif" font-size="9" fill="#64748b">Yesterday</text>
+
+  <line x1="232" y1="470" x2="844" y2="470" stroke="#252836" stroke-width="0.5" stroke-opacity="0.5"/>
+
+  <text x="232" y="488" font-family="Inter,sans-serif" font-size="9.5" fill="#e2e8f0">Legal doc review — GDPR checklist</text>
+  <rect x="448" y="479" width="52" height="16" rx="8" fill="rgba(245,158,11,0.12)"/>
+  <text x="474" y="491" font-family="Inter,sans-serif" font-size="8.5" fill="#fbbf24" text-anchor="middle">Legal</text>
+  <text x="568" y="488" font-family="Inter,sans-serif" font-size="9.5" fill="#94a3b8">31</text>
+  <text x="638" y="488" font-family="Inter,sans-serif" font-size="9" fill="#64748b">2d ago</text>
+
+  <line x1="232" y1="498" x2="844" y2="498" stroke="#252836" stroke-width="0.5" stroke-opacity="0.5"/>
+
+  <text x="232" y="510" font-family="Inter,sans-serif" font-size="9.5" fill="#94a3b8">Code review: backend auth refactor</text>
+  <rect x="448" y="501" width="78" height="16" rx="8" fill="rgba(6,182,212,0.12)"/>
+  <text x="487" y="513" font-family="Inter,sans-serif" font-size="8.5" fill="#22d3ee" text-anchor="middle">Coder Pro</text>
+  <text x="568" y="510" font-family="Inter,sans-serif" font-size="9.5" fill="#94a3b8">8</text>
+  <text x="638" y="510" font-family="Inter,sans-serif" font-size="9" fill="#64748b">3d ago</text>
+</svg>
